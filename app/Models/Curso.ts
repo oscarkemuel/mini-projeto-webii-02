@@ -6,4 +6,7 @@ export default class Curso extends BaseModel {
 
   @column()
   public nome: string;
+
+  @column()
+  public descricao: string;
 }

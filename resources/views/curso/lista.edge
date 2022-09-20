@@ -12,13 +12,25 @@
 <body>
     <h1>Cadastrar cursos</h1>
     <p>Lista de cursos cadastrados: </p>
-    <ul>
-      @each(curso in cursos)
-          <li>
-              <span>{{curso.nome}}</span>
-          </li>
-      @end
-    </ul>
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @each(curso in cursos)
+                <tr>
+                    <td>{{curso.nome}}</td>
+                    <td>{{curso.descricao}}</td>
+                    <td><a href="/curso/remover/{{curso.id}}">Remover</a></td>
+                </tr>
+            @end
+        </tbody>
+    </table>
     <br>
     <a href="/estudante">Formulário de estudantes</a><br>
     <a href="/estudante/getListaEstudantes">Estudantes</a><br>

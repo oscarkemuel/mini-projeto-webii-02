@@ -6,7 +6,7 @@ interface ICursoPayload {
 
 class CursosService {
   public async salvarCurso(payload: ICursoPayload) {
-    const curso = await Curso.create({nome: payload.nome})
+    const curso = await Curso.create(payload)
 
     return curso;
   }
@@ -15,6 +15,12 @@ class CursosService {
     const cursos = await Curso.all();
 
     return cursos;
+  }
+
+  public async removeCurso(id: number) {
+    const curso = await Curso.findOrFail(id);
+
+    await curso.delete()
   }
 }
 

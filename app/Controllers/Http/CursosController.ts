@@ -4,6 +4,7 @@ import CursosService from "App/Services/CursosService";
 
 interface ICursoPayload {
   nome: string;
+  descricao: string;
 }
 
 export default class CursosController {
@@ -25,5 +26,13 @@ export default class CursosController {
     const cursos = await this.cursosService.listaCursos();
 
     return ctx.view.render('curso/lista', {cursos})
+  }
+
+  public async removeCurso(ctx: HttpContextContract) {
+    const id = ctx.request.param('id');
+
+    await this.cursosService.removeCurso(id);
+
+    ctx.response.redirect('/curso/lista')
   }
 }

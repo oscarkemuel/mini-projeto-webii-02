@@ -74,6 +74,8 @@ class EstudantesService {
         }
       }
 
+      console.log({cursos, total: estudantes.length})
+
       return { cursos, total: estudantes.length };
     }
 

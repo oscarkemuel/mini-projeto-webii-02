@@ -12,7 +12,8 @@
     <h1>Cadastrar curso</h1>
 
     <form action="{{ route('CursosController.register') }}" method="POST">
-        <p>Nome: <input type="text" name="nome" placeholder="Insira o nome" value="{{ flashMessages.get('nome') || '' }}" /></p>
+        <p>Nome: <input type="text" name="nome" placeholder="Insira o nome" value="{{ flashMessages.get('nome') || '' }}" required/></p>
+        <p>Descrição: <input type="text" name="descricao" placeholder="Insira a descricao" value="{{ flashMessages.get('descricao') || '' }}" /></p>
 
         <p><input type="submit" value="Adicionar" /></p>
     </form>
