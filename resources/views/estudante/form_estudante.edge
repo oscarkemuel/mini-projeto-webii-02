@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-projeto 01 - Formulário</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main>
+    <h1>Cadastrar estudante</h1>
+    <form action="{{ route('EstudantesController.register') }}" method="POST">
+    <p>Primeiro Nome: <input type="text" name="primeiroNome" placeholder="Insira seu nome" value="{{ flashMessages.get('primeiroNome') || '' }}" required /></p>
+        <p>Último Nome: <input type="text" name="ultimoNome" placeholder="Insira seu último nome" value="{{ flashMessages.get('ultimoNome') || '' }}" /></p>
+        <p>Curso:
+            <select name="curso" required>
+                @each(curso in cursos)
+                    <option value={{curso.nome}}> {{ curso.nome }} </option>
+                @end
+            </select>
+            <a href="/curso/form">Cadastrar curso</a>
+        </p>
+        <p>
+            <input type="radio" id="java" name="linguagem" value="Java">
+            <label for="java">Java</label><br>
+            <input type="radio" id="c" name="linguagem" value="C">
+            <label for="c">C</label><br>
+            <input type="radio" id="python" name="linguagem" value="Python">
+            <label for="python">Python</label><br>
+            <input type="radio" id="javascript" name="linguagem" value="Javascript">
+            <label for="javascript">Javascript</label>
+        </p>
+        <p>
+            <input type="checkbox" name="sistemasOperacionas" value="OSX" id="OSX" />
+            <label for="OSX">OSX</label><br>
+            <input type="checkbox" name="sistemasOperacionas" value="Windows" id="windows" />
+            <label for="windows">Windows</label><br>
+            <input type="checkbox" name="sistemasOperacionas" value="Linux" id="linux" />
+            <label for="linux">Linux</label><br>
+        </p>
+        <p><input type="submit" value="Adicionar" /></p>
+    </form>
+
+    <a href="/estudante">Formulário de estudantes</a><br>
+    <a href="/estudante/getListaEstudantes">Estudantes</a><br>
+    <a href="/estudante/getListaPorCurso">Estudantes por Curso</a><br>
+    <a href="/estudante/getListaPorLinguagem">Estudantes por Linguagem</a><br>
+    <a href="/curso/form">Formulário de curso</a><br>
+    <a href="/curso/lista">Cursos</a><br>
+      </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-projeto 01 - Formulário</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main>
+    <h1>Cadastrar curso</h1>
+
+    <form action="{{ route('CursosController.register') }}" method="POST">
+        <p>Nome: <input type="text" name="nome" placeholder="Insira o nome" value="{{ flashMessages.get('nome') || '' }}" /></p>
+
+        <p><input type="submit" value="Adicionar" /></p>
+    </form>
+
+    <a href="/estudante">Formulário de estudantes</a><br>
+    <a href="/estudante/getListaEstudantes">Estudantes</a><br>
+    <a href="/estudante/getListaPorCurso">Estudantes por Curso</a><br>
+    <a href="/estudante/getListaPorLinguagem">Estudantes por Linguagem</a><br>
+    <a href="/curso/form">Formulário de curso</a><br>
+    <a href="/curso/lista">Cursos</a><br>
+      </main>
+</body>
+</html>
