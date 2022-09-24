@@ -40,8 +40,8 @@
     }
 
     .title {
-      font-size: 50px;
-      line-height: 50px;
+      font-size: 30px;
+      line-height: 30px;
       margin-bottom: 10px;
       color: #17161A;
     }
@@ -51,17 +51,23 @@
       margin: 0 auto;
       text-align: center;
     }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+    }
   </style>
 </head>
 <body>
 
   <main>
     <div>
-      <h1 class="title"> Aluno: Oscar Kemuel </h1>
-      <h2>WEB II</h2>
-      <h3>Mini-projeto 02</h3>
+      <h1 class="title">----- Menu -----</h1>
 
-      <a href="/estudante">Inciar</a>
+      <div class="menu">
+        <a href="/estudante/getListaEstudantes">Módulo Estudante</a>
+        <a href="/curso/lista">Módulo Curso</a>
+      </div>
     </div>
   </main>
 </body>

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h1>Cadastrar cursos</h1>
+    <h1>Lista cursos</h1>
     <p>Lista de cursos cadastrados: </p>
     <br />
     <table>
@@ -26,7 +26,10 @@
                 <tr>
                     <td>{{curso.nome}}</td>
                     <td>{{curso.descricao}}</td>
-                    <td><a href="/curso/remover/{{curso.id}}">Remover</a></td>
+                    <td>
+                      <a href="/curso/remover/{{curso.id}}">Remover</a>
+                      <a href="/curso/editar/{{curso.id}}">Editar</a>
+                    </td>
                 </tr>
             @end
         </tbody>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-projeto 01 - Formulário</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main>
+    <h1>Editar curso</h1>
+
+    <form action="{{ route('CursosController.editCurso', { id: curso.id }) }}" method="POST">
+        <p>Nome: <input type="text" name="nome" placeholder="Insira o nome" value="{{ curso.nome }}" readonly /></p>
+        <p>Descrição: <input type="text" name="descricao" placeholder="Insira a descricao" value="{{ curso.descricao }}" /></p>
+
+        <p><input type="submit" value="Editar" /></p>
+    </form>
+
+    <a href="/estudante">Formulário de estudantes</a><br>
+    <a href="/estudante/getListaEstudantes">Estudantes</a><br>
+    <a href="/estudante/getListaPorCurso">Estudantes por Curso</a><br>
+    <a href="/estudante/getListaPorLinguagem">Estudantes por Linguagem</a><br>
+    <a href="/curso/form">Formulário de curso</a><br>
+    <a href="/curso/lista">Cursos</a><br>
+      </main>
+</body>
+</html>

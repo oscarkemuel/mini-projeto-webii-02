@@ -35,4 +35,21 @@ export default class CursosController {
 
     ctx.response.redirect('/curso/lista')
   }
+
+  public async showEditForm(ctx: HttpContextContract) {
+    const id = ctx.request.param('id');
+
+    const curso = await this.cursosService.buscaCurso(id);
+
+    return ctx.view.render('curso/formEditar', {curso})
+  }
+
+  public async editCurso(ctx: HttpContextContract) {
+    const id = ctx.request.param('id');
+    const cursoPayload = ctx.request.all() as ICursoPayload;
+
+    await this.cursosService.editCurso(id, cursoPayload);
+
+    ctx.response.redirect('/curso/lista')
+  }
 }
