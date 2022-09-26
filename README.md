@@ -1,4 +1,4 @@
-# Mini-projeto 01 - WEBII
+# Mini-projeto 02 - WEBII
 ## Aluno: Oscar Kemuel Orrico dos Santos
 
 ### Requisitos mínimos:
@@ -16,4 +16,4 @@
 3. Baixar dependencias rodando ```npm install``` ou ```yarn ```
 4. Rodar as migrations ```node ace migration:run```
 5. Iniciar o projeto com ```npm run dev``` ou ```yarn dev```
-6. Abrir o navegador em ```http://localhost:3333/``` ou ```http://localhost:3333/estudante```
+6. Abrir o navegador em ```http://localhost:3333/```
