@@ -1,16 +1,11 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import CursosService from 'App/Services/CursosService';
 import EstudantesService from 'App/Services/EstudantesService'
 
 
 export interface IEstudante {
-    primeiroNome: string;
-    ultimoNome: string;
-    curso: string;
-    linguagem: string;
-    sistemasOperacionas: string | string[];
+    nome: string;
+    cursoId: number;
 }
 
 export default class EstudantesController {
@@ -25,9 +20,6 @@ export default class EstudantesController {
 
     public async register(ctx:  HttpContextContract) {
         const estudantePayload = ctx.request.all() as IEstudante;
-
-        const hasManySystems = Array.isArray(estudantePayload.sistemasOperacionas);
-        if(!hasManySystems) estudantePayload.sistemasOperacionas = [`${estudantePayload.sistemasOperacionas}`]
 
         const estudante = await this.estudantesService.salvarEstudante(estudantePayload)
 
@@ -44,8 +36,6 @@ export default class EstudantesController {
       const id = request.param('id');
       const estudante = await this.estudantesService.estudantePorId(id) as IEstudante;
 
-      estudante.sistemasOperacionas = (estudante.sistemasOperacionas as string).split(',')
-
       return view.render('estudante/detalhesEstudante', { estudante })
     }
 
@@ -55,17 +45,5 @@ export default class EstudantesController {
       await this.estudantesService.deletaEstudante(id)
 
       return response.redirect('/estudante/getListaEstudantes')
-    }
-
-    public async showEstudantesPorCurso({ view }: HttpContextContract) {
-      const cursos = await this.estudantesService.estudantesPorCurso();
-
-      return view.render('estudante/estudantesPorCurso', { cursos });
-    }
-
-    public async showEstudantesPorLinguagem({ view }: HttpContextContract) {
-      const linguagens = await this.estudantesService.estudantesPorLinguagem();
-
-      return view.render('estudante/estudantesPorLinguagem', { linguagens });
     }
 }

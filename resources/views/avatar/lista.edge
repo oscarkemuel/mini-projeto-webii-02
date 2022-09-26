@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar</title>
+
+</head>
+
+<body>
+    <h1>Listar avatars</h1>
+
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome fantasia</th>
+            <th>Estudante</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+            @each(avatar in avatars)
+              <tr>
+                <td>{{avatar.id}}</td>
+                <td>{{avatar.nomeFantasia}}</td>
+                <td>{{avatar.estudante.nome}}</td>
+                <td>{{avatar.estudante.curso.nome}}</td>
+              </tr>
+          @end
+        </tbody>
+      </table>
+    <br><br>
+
+    <a href="/avatar/registerAvatar">Cadastrar avatar</a><br>
+    <a href="/avatar/lista">Listar avatares</a><br>
+    <a href="/">Menu principal</a><br>
+  </body>
+
+</html>

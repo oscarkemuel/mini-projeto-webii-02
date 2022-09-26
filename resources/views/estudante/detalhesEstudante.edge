@@ -7,26 +7,15 @@
     <title>Estudante</title>
 </head>
 <body>
-       <h1>Detalhes de {{estudante.primeiroNome}}:</h1>
-        <p>Nome completo: {{estudante.primeiroNome}}  {{estudante.ultimoNome}}</p>
-        <p>Curso: {{estudante.curso}}</p>
-        <p>Linguagem favorita: {{estudante.linguagem}}</p>
-        <p>Sistemas Operacionais favoritos: </p>
-        <ul>
-            @each(sistema in estudante.sistemasOperacionas)
-                <li>
-                    <span>{{sistema}}</span>
-                </li>
-            @end
-        </ul>
+       <h1>Detalhes de {{estudante.nome}}:</h1>
+        <p>Nome completo: {{estudante.nome}}</p>
+        <p>Curso: {{estudante.curso.nome}}</p>
 
         <br />
         <a href="/estudante">Formulário de estudantes</a><br>
         <a href="/estudante/getListaEstudantes">Estudantes</a><br>
-        <a href="/estudante/getListaPorCurso">Estudantes por Curso</a><br>
-        <a href="/estudante/getListaPorLinguagem">Estudantes por Linguagem</a><br>
-        <a href="/curso/form">Formulário de curso</a><br>
-        <a href="/curso/lista">Cursos</a><br>
-
-</body>
+        <a href="/avatar/registerAvatar">Cadastrar avatar</a><br>
+        <a href="/avatar/lista">Listar avatares</a><br>
+        <a href="/">Menu principal</a><br>
+  </body>
 </html>

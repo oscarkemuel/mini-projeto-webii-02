@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-projeto 01 - Formulário</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main>
+    <h1>Cadastrar avatar</h1>
+    <form action="{{ route('AvatarsController.register') }}" method="POST">
+      <p>Nome fantasia: <input type="text" name="nomeFantasia" placeholder="Insira o nome fantasia" value="{{ flashMessages.get('nomeFantasia') || '' }}" required /></p>
+      <p>Estudante:
+          <select name="estudanteId" required>
+              @each(estudante in estudantes)
+                  <option value={{estudante.id}}> {{ estudante.nome }} </option>
+              @end
+          </select>
+          <a href="/estudante">Cadastrar estudante</a>
+      </p>
+        <p><input type="submit" value="Adicionar" /></p>
+    </form>
+
+    <a href="/avatar/registerAvatar">Cadastrar avatar</a><br>
+    <a href="/avatar/lista">Listar avatares</a><br>
+    <a href="/">Menu principal</a><br>
+  </main>
+</body>
+</html>
